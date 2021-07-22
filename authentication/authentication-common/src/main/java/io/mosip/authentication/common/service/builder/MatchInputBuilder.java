@@ -66,10 +66,7 @@ public class MatchInputBuilder {
 	 * @return the list
 	 */
 	public List<MatchInput> buildMatchInput(AuthRequestDTO authRequestDTO, AuthType[] authTypes, MatchType[] matchTypes,
-			Map<String, List<IdentityInfoDTO>> demoEntity) {
-		for(Entry<String, List<IdentityInfoDTO>> entry : demoEntity.entrySet()) {
-			System.out.println("Key: " + entry.getKey() + "value " + entry.getValue());
-		}
+			Map<String, List<IdentityInfoDTO>> demoEntity) {		
 		List<String> languages = idInfoFetcher.getSystemSupportedLanguageCodes();
 		return Stream.of(matchTypes).flatMap(matchType -> {
 			List<MatchInput> matchInputs = new ArrayList<>();			

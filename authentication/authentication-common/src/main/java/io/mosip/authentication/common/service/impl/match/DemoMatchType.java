@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -127,6 +128,9 @@ public enum DemoMatchType implements MatchType {
 		@Override
 		public boolean isMultiLanguage(String propName, Map<String, List<IdentityInfoDTO>> identityEntity) {			
 			System.out.println("propName: "  + propName);
+			for(Entry<String, List<IdentityInfoDTO>> entry : identityEntity.entrySet()) {
+				System.out.println("Key: " + entry.getKey());
+			}
 			List<IdentityInfoDTO> infoDtos = identityEntity.get(propName);
 			for (IdentityInfoDTO identityInfoDTO : infoDtos) {
 				System.out.println("identityInfoDTO " + identityInfoDTO);

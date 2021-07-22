@@ -125,8 +125,18 @@ public enum DemoMatchType implements MatchType {
 		}
 		
 		@Override
-		public boolean isMultiLanguage(String propName, Map<String, List<IdentityInfoDTO>> identityEntity) {
+		public boolean isMultiLanguage(String propName, Map<String, List<IdentityInfoDTO>> identityEntity) {			
+			System.out.println("propName: "  + propName);
 			List<IdentityInfoDTO> infoDtos = identityEntity.get(propName);
+			for (IdentityInfoDTO identityInfoDTO : infoDtos) {
+				System.out.println("identityInfoDTO " + identityInfoDTO);
+				if (identityInfoDTO != null) {
+					System.out.println("Language : " + identityInfoDTO.getLanguage());
+					System.out.println("Value : " + identityInfoDTO.getValue());
+				} else {
+					System.out.println("identityInfoDTO object is null for propName" + propName);
+				}
+			}
 			if(infoDtos.stream().anyMatch(infoDto->infoDto.getLanguage() == null)) {
 				return false;
 			}

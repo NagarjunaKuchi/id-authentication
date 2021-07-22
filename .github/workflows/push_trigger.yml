@@ -7,7 +7,7 @@ on:
       - master
       - 1.*
       - develop
-      - MOSIP-15385
+      - MOSIP-15835
   
 jobs:
   build:
